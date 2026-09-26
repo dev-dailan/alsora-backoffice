@@ -10,7 +10,7 @@ dist-ssr
 
 # editor directories and files
 .idea
-.DS_Store
+.DS_Storegit pus
 *.suo
 *.ntvs*
 *.njsproj
