@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
-import { appRegistry } from "@/app/appRegistry";
+import { appRegistry } from "@/nav/appRegistry";
 import { clsx } from "@/shared/lib/clsx";
 
 const COLLAPSED_WIDTH = "w-16";
