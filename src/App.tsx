@@ -1,4 +1,4 @@
-import { AppRouter } from "@/app/Router";
+import { AppRouter } from "@/nav/Router";
 
 export default function App() {
   return <AppRouter />;
