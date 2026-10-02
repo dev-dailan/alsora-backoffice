@@ -1,0 +1,9 @@
+aws_region = "ap-northeast-2"
+
+# knock-api 의 API Gateway 도메인 (scripts/provision.sh 가 knock-api 의 terraform output 에서 자동으로 채움)
+knock_api_domain = "abcd1234.execute-api.ap-northeast-2.amazonaws.com"
+
+# 백오피스 접근 제한 (Basic 인증). 비우면 URL 을 아는 누구나 접속할 수 있습니다.
+basic_auth_users = {
+  admin = "change-me-to-a-long-password"
+}

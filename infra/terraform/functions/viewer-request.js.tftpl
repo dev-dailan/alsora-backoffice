@@ -1,0 +1,26 @@
+// terraform 이 생성하는 파일입니다. 직접 수정하지 말고 functions/viewer-request.js.tftpl 을 고치세요.
+var TOKENS = ${jsonencode([for t in tokens : "Basic ${t}"])};
+
+function handler(event) {
+  var request = event.request;
+
+  if (TOKENS.length > 0) {
+    var auth = request.headers.authorization;
+    if (!auth || TOKENS.indexOf(auth.value) === -1) {
+      return {
+        statusCode: 401,
+        statusDescription: 'Unauthorized',
+        headers: { 'www-authenticate': { value: 'Basic realm="backoffice", charset="UTF-8"' } },
+      };
+    }
+  }
+%{ if spa_rewrite ~}
+
+  // 확장자가 없는 경로는 React Router 가 처리하도록 index.html 을 돌려준다.
+  if (request.uri.lastIndexOf('.') <= request.uri.lastIndexOf('/')) {
+    request.uri = '/index.html';
+  }
+%{ endif ~}
+
+  return request;
+}

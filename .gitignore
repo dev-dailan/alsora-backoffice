@@ -39,3 +39,9 @@ lerna-debug.log*
 /build
 
 package-lock.json
+# terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+.terraform.tfstate.lock.info
